@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems, solve = False):
+def arithmetic_arranger(problems, solve = True):
 
   #check Error: Too many problems
   if len(problems) > 5:
@@ -21,9 +21,9 @@ def arithmetic_arranger(problems, solve = False):
     firstnumber = problem.split(" ")[0]
     operator = problem.split(" ")[1]
     secondnumber = problem.split(" ")[2]
-    print(firstnumber)
-    print(operator)
-    print(secondnumber)
+    # print(firstnumber)
+    # print(operator)
+    # print(secondnumber)
 
     if operator != "+" and operator != "-":
       return "Error: Operator must be '+' or '-'."
@@ -40,19 +40,19 @@ def arithmetic_arranger(problems, solve = False):
       answer = int(firstnumber) + int(secondnumber)
     elif operator == "-":
       answer = int(firstnumber) - int(secondnumber)
-    print(answer)
+    # print(answer)
 
     maxlength = max(len(firstnumber), len(secondnumber), len(str(answer))) + 2
-    print(maxlength)
+    # print(maxlength)
 
     boxline1 = str(firstnumber).rjust(maxlength)
     boxline2 = operator + str(secondnumber).rjust(maxlength - 1)
     boxline3 = "-" * maxlength
     boxline4 = str(answer).rjust(maxlength)
-    print(boxline1)
-    print(boxline2)
-    print(boxline3)
-    print(boxline4)
+    # print(boxline1)
+    # print(boxline2)
+    # print(boxline3)
+    # print(boxline4)
 
     if problem != problems[-1]:
       arrangedline1 += boxline1 + "    "
@@ -60,20 +60,22 @@ def arithmetic_arranger(problems, solve = False):
       arrangedline3 += boxline3 + "    "
       arrangedline4 += boxline4 + "    "
 
-    else:
+    elif problem == problems[-1]:
       arrangedline1 += boxline1
       arrangedline2 += boxline2
       arrangedline3 += boxline3
       arrangedline4 += boxline4
 
-    print(arrangedline1)
-    print(arrangedline2)
-    print(arrangedline3)
-    print(arrangedline4)
+    # print(arrangedline1)
+    # print(arrangedline2)
+    # print(arrangedline3)
+    # print(arrangedline4)
 
   if solve:
     arranged_problems = arrangedline1 + "\n" + arrangedline2 + "\n" + arrangedline3 + "\n" + arrangedline4
+    print("Solved: " + "\n" + arranged_problems + "\n" + "end" + "\n")
   else:
     arranged_problems = arrangedline1 + "\n" + arrangedline2 + "\n" + arrangedline3
+    print("Not solved: " + "\n" + arranged_problems + "\n" + "end" + "\n")
 
   return arranged_problems
